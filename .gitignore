@@ -18,8 +18,8 @@
 ./checkpolicy
 ./chromium
 ./chromium-libpac
-./chromium_org
 ./chromium-trace
+./chromium_org
 ./clang
 ./compiler-rt
 ./dexmaker
@@ -121,11 +121,11 @@
 ./oauth
 ./objenesis
 ./okhttp
+./open-vcdiff
 ./opencv
 ./openfst
 ./openssh
 ./openssl
-./open-vcdiff
 ./openvpn
 ./oprofile
 ./pixman

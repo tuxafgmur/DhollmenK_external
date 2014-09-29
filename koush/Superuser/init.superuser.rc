@@ -1,6 +1,4 @@
-# su daemon
-service su_daemon /system/xbin/su --daemon
-    oneshot
+# Superuser - su daemon
 
 on property:persist.sys.root_access=0
     stop su_daemon
@@ -13,3 +11,6 @@ on property:persist.sys.root_access=1
 
 on property:persist.sys.root_access=3
     start su_daemon
+
+service su_daemon /system/xbin/su --daemon
+    oneshot
