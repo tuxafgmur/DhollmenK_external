@@ -45,7 +45,6 @@
 ./flac
 ./freetype
 ./fsck_msdos
-./fuse
 ./ganymed-ssh2
 ./gcc-demangle
 ./genext2fs
