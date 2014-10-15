@@ -521,12 +521,6 @@ static __attribute__ ((noreturn)) void allow(struct su_context *ctx) {
     (argc + (arg) < ctx->to.argc) ? " " : "",                    \
     (argc + (arg) < ctx->to.argc) ? ctx->to.argv[argc + (arg)] : ""
 
-    LOGD("%u %s executing %u %s using binary %s : %s%s%s%s%s%s%s%s%s%s%s%s%s%s",
-            ctx->from.uid, ctx->from.bin,
-            ctx->to.uid, get_command(&ctx->to), binary,
-            arg0, PARG(0), PARG(1), PARG(2), PARG(3), PARG(4), PARG(5),
-            (ctx->to.optind + 6 < ctx->to.argc) ? " ..." : "");
-
     ctx->to.argv[--argc] = arg0;
     execvp(binary, ctx->to.argv + argc);
     err = errno;
@@ -686,8 +680,6 @@ int su_main(int argc, char *argv[], int need_client) {
      */
     setenv("LD_LIBRARY_PATH", "/vendor/lib:/system/lib", 0);
 
-    LOGD("su invoked.");
-
     struct su_context ctx = {
         .from = {
             .pid = -1,
@@ -784,7 +776,6 @@ int su_main(int argc, char *argv[], int need_client) {
             (get_api_version() >= 18 && getuid() == AID_SHELL) ||
             get_api_version() >= 19) {
             // attempt to connect to daemon...
-            LOGD("starting daemon client %d %d", getuid(), geteuid());
             return connect_daemon(argc, argv, ppid);
         }
     }
@@ -830,7 +821,6 @@ int su_main(int argc, char *argv[], int need_client) {
 
     // the latter two are necessary for stock ROMs like note 2 which do dumb things with su, or crash otherwise
     if (ctx.from.uid == AID_ROOT) {
-        LOGD("Allowing root/system/radio.");
         allow(&ctx);
     }
 
@@ -858,13 +848,11 @@ int su_main(int argc, char *argv[], int need_client) {
 
     // check if superuser is disabled completely
     if (access_disabled(&ctx.from)) {
-        LOGD("access_disabled");
         deny(&ctx);
     }
 
     // autogrant shell at this point
     if (ctx.from.uid == AID_SHELL) {
-        LOGD("Allowing shell.");
         allow(&ctx);
     }
 
@@ -899,16 +887,13 @@ int su_main(int argc, char *argv[], int need_client) {
         case INTERACTIVE:
             break;
         case ALLOW:
-            LOGD("db allowed");
             allow(&ctx);    /* never returns */
         case DENY:
         default:
-            LOGD("db denied");
             deny(&ctx);        /* never returns too */
     }
 
     socket_serv_fd = socket_create_temp(ctx.sock_path, sizeof(ctx.sock_path));
-    LOGD(ctx.sock_path);
     if (socket_serv_fd < 0) {
         deny(&ctx);
     }

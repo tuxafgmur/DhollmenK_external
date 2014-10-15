@@ -278,13 +278,9 @@ static int run_daemon_child(int infd, int outfd, int errfd, int argc, char** arg
 static int daemon_accept(int fd) {
     is_daemon = 1;
     int pid = read_int(fd);
-    LOGD("remote pid: %d", pid);
     char *pts_slave = read_string(fd);
-    LOGD("remote pts_slave: %s", pts_slave);
     daemon_from_uid = read_int(fd);
-    LOGV("remote uid: %d", daemon_from_uid);
     daemon_from_pid = read_int(fd);
-    LOGV("remote req pid: %d", daemon_from_pid);
 
     struct ucred credentials;
     int ucred_length = sizeof(struct ucred);
@@ -312,7 +308,6 @@ static int daemon_accept(int fd) {
         LOGE("unable to allocate args: %d", argc);
         exit(-1);
     }
-    LOGV("remote args: %d", argc);
     char** argv = (char**)malloc(sizeof(char*) * (argc + 1));
     argv[argc] = NULL;
     int i;
@@ -342,7 +337,6 @@ static int daemon_accept(int fd) {
 
         free(pts_slave);
 
-        LOGD("waiting for child exit");
         if (waitpid(child, &status, 0) > 0) {
             code = WEXITSTATUS(status);
         }
@@ -351,13 +345,11 @@ static int daemon_accept(int fd) {
         }
 
         // Pass the return code back to the client
-        LOGD("sending code");
         if (write(fd, &code, sizeof(int)) != sizeof(int)) {
             PLOGE("unable to write exit code");
         }
 
         close(fd);
-        LOGD("child exited");
         return code;
     }
 
@@ -382,15 +374,12 @@ static int daemon_accept(int fd) {
         }
 
         if (infd < 0)  {
-            LOGD("daemon: stdin using PTY");
             infd  = ptsfd;
         }
         if (outfd < 0) {
-            LOGD("daemon: stdout using PTY");
             outfd = ptsfd;
         }
         if (errfd < 0) {
-            LOGD("daemon: stderr using PTY");
             errfd = ptsfd;
         }
     } else {
@@ -555,8 +544,6 @@ int connect_daemon(int argc, char *argv[], int ppid) {
         exit(-1);
     }
 
-    LOGV("connecting client %d", getpid());
-
     int mount_storage = getenv("MOUNT_EMULATED_STORAGE") != NULL;
 
     // Determine which one of our streams are attached to a TTY
@@ -643,7 +630,6 @@ int connect_daemon(int argc, char *argv[], int ppid) {
     // Get the exit code
     int code = read_int(socketfd);
     close(socketfd);
-    LOGD("client exited %d", code);
 
     return code;
 }
