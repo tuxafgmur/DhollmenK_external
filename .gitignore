@@ -91,6 +91,7 @@
 ./libselinux
 ./libsepol
 ./libssh2
+./libtruezip
 ./libusb
 ./libusb-compat
 ./libvorbis
