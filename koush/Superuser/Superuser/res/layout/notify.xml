@@ -34,14 +34,14 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:text="@string/owner_login_info"
                 style="@android:style/TextAppearance.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:text="@string/owner_login_info" />
+                android:paddingBottom="10dp"/>
 
             <LinearLayout
                 android:layout_width="fill_parent"

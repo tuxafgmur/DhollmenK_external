@@ -1,10 +1,10 @@
 <resources>
 
     <style name="BottomButton">
-        <item name="android:textColor">?attr/bottomButtonBarText</item>
+        <item name="android:textColor">#ff000000</item>
     </style>
 
-    <color name="background_dark">#1F1F1F</color>
+    <color name="background_dark">#ffdedede</color>
 
     <style name="PinButtonBase" parent="@android:style/TextAppearance.Large">
         <item name="android:layout_width">0dp</item>
@@ -20,7 +20,6 @@
     <style name="SuperuserDark" parent="@style/AppDarkTheme">
         <item name="bottomButtonBar">@null</item>
         <item name="bottomButtonBarText">?android:attr/textColorPrimary</item>
-
         <item name="toggleIcon">@drawable/ic_toggle_dark</item>
         <item name="multiuserIcon">@drawable/ic_users_dark</item>
         <item name="declaredPermissionsIcon">@drawable/ic_declare_dark</item>
@@ -30,14 +29,12 @@
         <item name="loggingIcon">@drawable/ic_logging_dark</item>
         <item name="notificationsIcon">@drawable/ic_notifications_dark</item>
         <item name="themeIcon">@drawable/ic_theme_dark</item>
-        
-        <item name="largeIconTheme">@style/SuperuserDark.LargeIcon</item>
+        <item name="largeIconTheme">@style/Superuser.LargeIcon</item>
     </style>
 
     <style name="SuperuserLight" parent="@style/AppTheme">
         <item name="bottomButtonBar">@color/background_dark</item>
-        <item name="bottomButtonBarText">?android:attr/textColorPrimaryInverse</item>
-        
+        <item name="bottomButtonBarText">#ff000000</item>
         <item name="toggleIcon">@drawable/ic_toggle</item>
         <item name="multiuserIcon">@drawable/ic_users</item>
         <item name="declaredPermissionsIcon">@drawable/ic_declare</item>
@@ -47,15 +44,10 @@
         <item name="loggingIcon">@drawable/ic_logging</item>
         <item name="notificationsIcon">@drawable/ic_notifications</item>
         <item name="themeIcon">@drawable/ic_theme</item>
-
         <item name="largeIconTheme">@style/Superuser.LargeIcon</item>
     </style>
 
     <style name="Superuser.LargeIcon">
-        <item name="iconSize">@android:dimen/app_icon_size</item>
-    </style>
-    
-    <style name="SuperuserDark.LargeIcon">
         <item name="iconSize">@android:dimen/app_icon_size</item>
     </style>
     

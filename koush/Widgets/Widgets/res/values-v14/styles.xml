@@ -25,10 +25,10 @@
     </style>
 
     <style name="ListItemTitle" parent="@android:style/TextAppearance.Medium" >
-
+	<item name="android:textColor">#ff000000</item>
     </style>
 
     <style name="ListItemSummary" parent="@android:style/TextAppearance.Small" >
-
+	<item name="android:textColor">#ff707070</item>
     </style>
 </resources>

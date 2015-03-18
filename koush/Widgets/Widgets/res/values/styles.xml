@@ -1,7 +1,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AndroidTheme" parent="@android:style/Theme.Light" />
-    <style name="AndroidDarkTheme" parent="@android:style/Theme.Black" />
+    <style name="AndroidTheme" parent="@android:style/Theme.Holo.Light" />
+    <style name="AndroidDarkTheme" parent="@android:style/Theme.Holo.Light" />
     
     <!--
         Base application theme, dependent on API level. This theme is replaced

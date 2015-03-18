@@ -21,10 +21,11 @@
                 android:layout_weight="3"
                 android:paddingRight="10dp"
                 android:text="@string/app_header"
-                android:textStyle="bold" />
+		android:textColor="#ff000000" />
 
             <TextView
                 android:id="@+id/app_header"
+		android:textColor="#ff707070"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -42,10 +43,11 @@
                 android:layout_weight="3"
                 android:paddingRight="10dp"
                 android:text="@string/package_header"
-                android:textStyle="bold" />
+		android:textColor="#ff000000" />
 
             <TextView
                 android:id="@+id/package_header"
+		android:textColor="#ff707070"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -70,10 +72,11 @@
                 android:layout_weight="3"
                 android:paddingRight="10dp"
                 android:text="@string/uid_header"
-                android:textStyle="bold" />
+		android:textColor="#ff000000" />
 
             <TextView
                 android:id="@+id/uid_header"
+		android:textColor="#ff707070"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -91,10 +94,11 @@
                 android:layout_weight="3"
                 android:paddingRight="10dp"
                 android:text="@string/command_header"
-                android:textStyle="bold" />
+		android:textColor="#ff000000" />
 
             <TextView
                 android:id="@+id/command_header"
+		android:textColor="#ff707070"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"

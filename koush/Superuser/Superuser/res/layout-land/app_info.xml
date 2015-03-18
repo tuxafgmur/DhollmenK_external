@@ -21,7 +21,8 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:paddingRight="10dp"
-                android:text="@string/app_header" />
+                android:text="@string/app_header"
+		android:textColor="#ff000000" />
 
             <TextView
                 android:id="@+id/app_header"
@@ -29,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="@dimen/golden_ratio"
                 android:singleLine="true"
-                android:textStyle="bold" />
+		android:textColor="#ff707070" />
         </LinearLayout>
 
         <LinearLayout
@@ -43,7 +44,8 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:paddingRight="10dp"
-                android:text="@string/package_header" />
+                android:text="@string/package_header"
+		android:textColor="#ff000000" />
 
             <TextView
                 android:id="@+id/package_header"
@@ -51,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="@dimen/golden_ratio"
                 android:singleLine="true"
-                android:textStyle="bold" />
+		android:textColor="#ff707070" />
         </LinearLayout>
     </LinearLayout>
 
@@ -72,7 +74,8 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:paddingRight="10dp"
-                android:text="@string/uid_header" />
+                android:text="@string/uid_header"
+		android:textColor="#ff000000" />
 
             <TextView
                 android:id="@+id/uid_header"
@@ -80,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="@dimen/golden_ratio"
                 android:singleLine="true"
-                android:textStyle="bold" />
+		android:textColor="#ff707070" />
         </LinearLayout>
 
         <LinearLayout
@@ -94,7 +97,8 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:paddingRight="10dp"
-                android:text="@string/command_header" />
+                android:text="@string/command_header"
+		android:textColor="#ff000000" />
 
             <TextView
                 android:id="@+id/command_header"
@@ -103,7 +107,7 @@
                 android:layout_weight="@dimen/golden_ratio"
                 android:ellipsize="middle"
                 android:singleLine="true"
-                android:textStyle="bold" />
+		android:textColor="#ff707070" />
         </LinearLayout>
     </LinearLayout>
 
